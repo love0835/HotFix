@@ -27,19 +27,18 @@ namespace HotFixTest
 
         public void Test3()
         {
-            Pud
+            Pud_Mono.Inst.StartCoroutine(co_Test());
         }
 
         public IEnumerator co_Test()
         {
-            yield return new WaitForSeconds(3);
+            Debug.Log("Start Wait");
+            while (!Pud_Mono.Inst.isTrue)
+            {
+                yield return 0;
+            }
             Debug.Log("BBB");
         }
 
-
-        public void Update()
-        {
-            Debug.Log("abc");
-        }
     }
 }

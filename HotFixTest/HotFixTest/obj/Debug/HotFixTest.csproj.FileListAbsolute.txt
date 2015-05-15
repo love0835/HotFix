@@ -6,3 +6,10 @@ D:\HotFixTest\HotFixTest\obj\Debug\HotFixTest.dll
 D:\HotFixTest\HotFixTest\obj\Debug\HotFixTest.pdb
 C:\LSharp-master\ForUnity\LSharp_U3D_HelloWorld_20150313\Assets\Resources\HotFixTest.dll
 C:\LSharp-master\ForUnity\LSharp_U3D_HelloWorld_20150313\Assets\Resources\HotFixTest.pdb
+D:\Unity_HotFix\HotFixTest\HotFixTest\bin\Debug\HotFixTest.dll
+D:\Unity_HotFix\HotFixTest\HotFixTest\bin\Debug\HotFixTest.pdb
+D:\Unity_HotFix\HotFixTest\HotFixTest\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\Unity_HotFix\HotFixTest\HotFixTest\bin\Debug\UnityEngine.dll
+D:\Unity_HotFix\HotFixTest\HotFixTest\obj\Debug\HotFixTest.csprojResolveAssemblyReference.cache
+D:\Unity_HotFix\HotFixTest\HotFixTest\obj\Debug\HotFixTest.dll
+D:\Unity_HotFix\HotFixTest\HotFixTest\obj\Debug\HotFixTest.pdb
