@@ -24,6 +24,15 @@ public class Main : MonoBehaviour {
 
     void OnGUI()
     {
+
+        if (GUILayout.Button("Test Bird"))
+        {
+            HotFixMgr.Inst.CallMethod(classID, "Test3", null, null);
+        }
+        if (GUILayout.Button("Change"))
+        {
+            Pud_Mono.Inst.isTrue = true;
+        }
         if (GUILayout.Button("Add"))
         {
             HotFixMgr.Inst.CallMethod(classID, "Add", null ,null);

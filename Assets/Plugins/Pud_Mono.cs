@@ -9,6 +9,7 @@ public class Pud_Mono : MonoBehaviour
         get { return _inst; }
     }
 
+    public bool isTrue = false;
     void Awake()
     {
         _inst = this;

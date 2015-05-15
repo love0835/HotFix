@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using CLRSharp;
 
 
 public class HotFixMgr
@@ -37,6 +38,58 @@ public class HotFixMgr
         public CLRSharp.IMethod methodctor;
         public object typeObj;
         
+    }
+
+    public class Params
+    {
+        private List<object[]> _params = null;
+        private bool fixedClose = false; //已封装
+        private System.Type[] _typs = null;
+        private object[] _vals = null;
+
+        public void Add(System.Type type, object value)
+        {
+            if (fixedClose)
+                return;
+
+            if (_params == null)
+                _params = new List<object[]>();
+            object[] pairs = new object[2];
+            pairs[0] = type;
+            pairs[1] = value;
+            _params.Add(pairs);
+        }
+        public void Close()
+        {
+            if (fixedClose)
+                return;
+            if (_params == null)
+                return;
+
+            int _paramsCount = _params.Count;
+            _typs = new System.Type[_paramsCount];
+            _vals = new System.Type[_paramsCount];
+            for (int n = 0; n < _paramsCount; n++)
+            {
+                _typs[n] = (System.Type)_params[n][0];
+                _vals[n] = _params[n][1];
+            }
+            _params = null;
+            fixedClose = true;
+        }
+        public System.Type[] GetTypes()
+        {
+            if (!fixedClose)
+                return null;
+            return _typs;
+        }
+
+        public object[] GetValues()
+        {
+            if (!fixedClose)
+                return null;
+            return _vals;
+        }
     }
 
     private string file = "HotFixTest";
@@ -88,7 +141,7 @@ public class HotFixMgr
         }
         return id;
     }
-    public void CallMethod(string classID, string methodName, System.Type[] types, object[] list)
+    public void CallMethod(string classID, string methodName, Params par)
     {
         
         if (!methods.ContainsKey(classID))
@@ -113,6 +166,23 @@ public class HotFixMgr
         
         method02.Invoke(context, method.typeObj, list);
     }
+
+    private MethodParamList GetParamList(Params par)
+    {
+        if (par == null)
+            return CLRSharp.MethodParamList.constEmpty();
+        List<object[]> pVal = par.Get();
+        if (pVal == null)
+            return CLRSharp.MethodParamList.constEmpty();
+
+        CLRSharp.MethodParamList typeList;
+        for (int n = 0; n < pVal.Count; n++)
+        {
+            
+        }
+
+    }
+
     /*
     public void CallMethod_Static(string className, string methodName, System.Type[] types, object[] list)
     {
